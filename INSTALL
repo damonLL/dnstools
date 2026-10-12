@@ -1,0 +1,21 @@
+1.  READ THE README.FIRST FILE FIRST!!!!!
+
+2.  After completing all the steps in the README.FIRST
+    file, then you can run install.sh
+
+3.  Pay attention to the requirements when the script
+    tells you what you need to have before you begin!
+    You *must* have all of the information it requests.
+
+4.  If you have compiled the DNSTools executable and
+    you have all of the right information, the script
+    should automate the installation and you will have
+    no problems.
+
+5.  The script does some basic checking for existing
+    files and the like, but it's not exhaustive, so
+    don't try to confuse it.
+
+THIS SOFTWARE IS LICENSED UNDER THE GNU PUBLIC LICENSE.
+
+Please see the file "license" for more information.

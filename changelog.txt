@@ -1,0 +1,116 @@
+2002-04-16 
+----------
+
+- Function check_valid_hostname was enhanced.
+
+- Function hostname_must_have_dots was created for name server
+  and MX Records.
+
+- Code now properly checks for valid hostnames, MX names, NS names,
+  alias names, etc.
+
+- Added style sheet file and prettied up the fonts a little.
+
+2002-04-17 (Release 2.0 Beta 3)
+----------
+
+- No longer says a domain is a subdomain if it's not true during 'view domain'
+
+- You can now only select domains as the "parent", not sub-domains when
+  adding a new domain.  Same in the "modify domain" section
+
+2002-04-25 (Release 2.0 Beta 4)
+----------
+
+- When listing groups, hosts and users it now lists the total # at the top
+
+- More consistent logfile messages when deleting and adding records
+
+- Now prints the hostname of your server when you supply the "-config" option
+  to dnstools.  This is in preparation of adding license keys
+
+- Now has a FORCE UPDATE button to create new BIND files on-demand
+  (in DOMAIN section)
+  -- It also shows the output, including a RED or GREEN failure or
+     success note at the top
+
+- You can no longer add duplicate name server based on hostname or IP
+  in the same domain.
+
+- Now properly warns if you haven't configured a Main DNSTools domain
+  (used for reverse zone global information)
+
+2002-04-27 (Release 2.0 Beta 5)
+----------
+
+- Fixed major security hole in URL spoofing.  No longer trusts the variables
+  $is_logged_in or $user_dnstools_administrator.  Now checks the database
+	value of these everytime a request is made.
+
+- Now tells user they have to log out and log back in if they change
+  password.  This is due to the change mentioned above.
+
+2002-05-06 (Release 2.0 Beta 6)
+----------
+
+- Now runs on Solaris.
+
+- Now prints out STDERR to STDOUT if the exec() function fails.
+
+2002-05-08 (Release 2.0 FULL RELEASE!)
+----------
+
+- No longer segfaults when there are no hosts in a registered IP range.
+
+- All queries that are expected to return results are preceded by
+  queries that request how many rows will be returned in the query.
+	This avoids several segfaults if there is no actual data from the query.
+
+- Subdomains are no longer "owned" by a domain.  They are separate entities
+	and have their own groups, data, etc.  Took out all subdomain-related
+	code and database information.  Caveat: *ALL* domain data must reside
+	on your DNSTools server now, you cannot delegate sub-domains or reverse
+	domains (CIDR).
+
+- Full testing for primary/secondary completed.  Zone transfers work
+	properly now.
+
+- Help screens are complete.
+
+- Fixed CNAME issue where the dot was misplaced
+
+2002-06-06 (Release 2.0.1)
+----------
+
+- Release now includes the C source code for compilation on several operating
+	systems!
+
+- No longer prints USER name and PASSword when PHP fails to connect to
+	database.
+
+- Updated pricing policy which makes DNSTools available for a wider range of
+	people for free.
+
+2002-11-25 (Release 2.0.2)
+----------
+
+- Wow, has it really been almost six months since I've updated DNSTools?!
+
+- Finally, an install script, yay!  Created a better README.FIRST file too.
+
+- Fixed error 139 when 'pushing' with dnstools executable, and there are
+	no IP ranges.  It was not checking if the data existed in the
+	database before it did the request
+
+- Fixed error 139 when 'pushing' with dnstools executable, and there is
+	no main_dnstools_domain set in the database.  It was not checking
+	if the data existed in the database before it did the request
+
+- Added more troubleshooting lines of code that should help identify where
+	the program is core dumping.  Run with "-troubleshooting" on the
+	end of the 'dnstools' executable.
+
+- Binary versions are no longer distributed with the archive.  The
+	success rate for getting those to work was very low anyhow.
+	This should guarantee that all installations work much better
+	if they are compiled locally.

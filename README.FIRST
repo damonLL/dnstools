@@ -1,0 +1,67 @@
+DNSTOOLS COPYRIGHT (c) 2000 Damon LaCaille
+
+DNSTools has been released under the GPL.  Please
+see the file "license" for more information.
+
+
+One assumption is that you will be hosting all of your
+DNS data in DNSTools.  DNSTools does not allow you to delegate
+subdomains or reverse ARPA (RFC 2317/CIDR) zones.  You shouldn't
+need to delegate, however, if you offer those administrators
+access to DNSTools and give them proper permissions.
+
+DNSTools does not support CIDR in terms of RFC 2317.  There
+is no need to implement CIDR if you are hosting your domains
+on a single machine.  A huge benefit of DNSTools is that
+you can separate the DNS data into domains which are owned
+by groups.  Each group has 1 or more users who can modify
+that data.  This should make it easy for you, your customers
+and your users to have completely separate administrators
+and authority for the separate areas.
+
+##############################################################
+                        REQUIREMENTS:
+##############################################################
+
+1) BIND VERSION 8 ONLY!!! Bind v9 support to be added later.
+2) Either Linux or Solaris (other OSes likely work but have not been tested)
+3) MySQL (only tested on version 3.23, probably works on anything newer)
+4) Apache (only tested on 1.3.24)
+5) PHP (only tested on 4.1.2)
+6) C Compiler
+
+**** MAKE SURE YOU DO THESE STEPS BEFORE STARTING!
+
+1) Install the SOURCE version of MySQL and compile it.  Otherwise
+   you'll have all sorts of possible dynamic library linking problems
+   with the libmysqlclient library files!  Don't say we didn't warn you.
+
+   This file is normally only found in the source of MySQL and
+   is usually compiled into an object file specific for your
+   hardware/OS.
+
+   One note:  Feel free to experiment.  On Solaris, you can sometimes
+   set your LD_LIBRARY_PATH to include the library mentioned above,
+   and it may just work.  You may also need to create a symbolic link
+   to the library if it fails and says it can't find it.
+
+2) Ensure Apache has PHP support (shared object modules (mod_so))
+   compiled in (see Apache manual for this).
+   To see if it's installed type "httpd -l" and look for "mod_so.c".
+   If the shared object module (mod_so) is not there, you'll have
+   to download the Apache source code and configure it in.  Surprisingly
+   it's not usually compiled into many Linux distributions.
+
+3) Ensure PHP has MySQL and Apache support compiled in.
+   See PHP manual for this or simply use --with-mysql
+   and --with-apxs during compile time.
+
+4) Compile the dnstools executable (type "make" in this directory).
+
+5) Run the 'install.sh' file after all the steps above are complete.
+
+You'll also want to write a script or batch job that
+automatically forces BIND to re-read it's config files every 30-60 minutes
+or whatever is good for you.  DNSTools does not restart BIND or force
+BIND to re-read it's config files because of security issues involved
+with it.  This may be addressed in a future release.

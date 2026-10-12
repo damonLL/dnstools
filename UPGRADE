@@ -1,0 +1,14 @@
+If you are upgrading from version 2.0.1,
+you should simply recompile the DNSTools
+binary and replace your current binary.
+
+There have been no database schema changes,
+and no changes to the PHP code, only the
+C code for the 'dnstools' executable has
+changed.
+
+(Well, there is now an install script,
+but it is *HIGHLY* recommended that you
+do not run this unless you want to wipe
+out your current installation and start
+over from scratch)
