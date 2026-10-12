@@ -1,0 +1,7 @@
+A:link {text-decoration: none;}
+A:visited {text-decoration: none;}
+A:hover { color: #0000FF ; text-decoration: underline; }
+p { font-family: "arial"; font-size: 10pt;}
+li { font-family: "arial"; font-size: 10pt;}
+tr { font-family: "arial"; font-size: 10pt;}
+td { font-family: "arial"; font-size: 10pt;}
